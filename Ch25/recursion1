@@ -1,0 +1,59 @@
+def count7(n):
+	if n==0:
+		return 0
+	elif n%10==7:
+		return 1+count7(n//10)
+	else:
+		return count7(n//10)
+
+def count8(n):
+	if n==0:
+		return 0
+	elif n%10==8 and (n//10)%10==8:
+		return 2+count8(n//10)
+	elif n%10==8 and (n//10)%10!=8:
+		return 1+count8(n//10)
+	else:
+		return count8(n//10)
+
+def powerN(base,n):
+	if n==1:
+		return base
+	else:
+		return base*powerN(base,n-1)
+
+def countX(n):
+	if n=='':
+		return 0
+	elif n[-1]=='x':
+		return 1+countX(n[:-1])
+	else:
+		return countX(n[:-1])
+
+def countHi(n):
+	if n=='':
+		return 0
+	elif n[-1]=='i' and n[-2]=='h':
+		return 1+countHi(n[:-1])	
+	else:
+		return countHi(n[:-1])
+
+def changeXY(n):
+	if n=='':
+		return ''
+	elif n[0]=='x':
+		return 'y'+changeXY(n[1:])
+	else:
+		return n[0]+changeXY(n[1:])
+		
+def changePi(n):
+	if n=='':
+		return ''
+	elif n[0]=='p' and n[1]=='i':
+		return '3.14'+changePi(n[2:])	
+	else:
+		return n[0]+changePi(n[1:])
+	
+a=input()
+#b=int(input())
+print(changePi(a))
